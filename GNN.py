@@ -19,7 +19,7 @@ import sys
 
 
 class Neural_Net_Gen:    
-    #fuct.0ion to normalize data between 0.0 and 1
+    #fuction to normalize data between 0.0 and 1
     def normalize(self,data):
         final_result = list()
         for i in data:
@@ -128,7 +128,7 @@ class Neural_Net_Gen:
         accuracy = list()
         for sol_idx in range(weights_mat.shape[0]):
             curr_sol_mat = weights_mat[sol_idx, :]
-            accuracy.append(predict_outputs(curr_sol_mat, data_inputs, data_outputs,show =  show))
+            accuracy.append(self.predict_outputs(curr_sol_mat, data_inputs, data_outputs,show =  show))
         accuracy = np.array(accuracy)
         if show:
             print("Best acc over the population:",max(accuracy),"tested on",len(data_outputs),"data points")
@@ -292,7 +292,7 @@ class Neural_Net_Gen:
                                   test_outputs,True)
         return self.vector_to_mat(pop_weights_vector, pop_weights_mat)
     def fit (self,path,show = False):
-        self.train(path,show = show);
+        return self.train(path,show = show);
         
 # best is the weights of the best generation
 GNN = Neural_Net_Gen()
