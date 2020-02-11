@@ -14,3 +14,5 @@ The input is a CSV file with properties
  The code models the nueral network as a set of metrices (structure can be changed if needed).
  The weights of the matrices are updated using a getetic algortihm. The traing also uses simulated aneeling to overcome local     minimas.
  
+In the graphs the Blue curve is the accuracy and orange is the current mutation rate.
+If the accuracy plataues the mutation rate is raised to try and find a better minima.
