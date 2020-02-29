@@ -22,7 +22,9 @@ The input is a CSV file with properties (keep this format)
  ## To Run :
 
 $gedit GNN.py
+
 <change the file path if needed>
+
 $python3 GNN.py
  
  ## Disciprtion
