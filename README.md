@@ -3,6 +3,8 @@ Using Genetic and Simulated Annealing to train Neural networks
 
 
 The input is a CSV file with properties (keep this format)
+    
+    
     Y1 Y2 ...... OUT
     
  0  5   5         0
