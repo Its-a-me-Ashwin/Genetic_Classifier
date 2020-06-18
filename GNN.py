@@ -296,5 +296,5 @@ class Neural_Net_Gen:
         
 # best is the weights of the best generation
 GNN = Neural_Net_Gen()
-best = GNN.fit('Eyes.csv')      
+bestPerformingEntity = GNN.fit('Eyes.csv')      
         
