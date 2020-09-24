@@ -21,15 +21,13 @@ The input is a CSV file with properties (keep this format)
  
  ## To Run :
 
-$gedit GNN.py
-
-<change the file path if needed>
-
+$git clone repo
+$cd Genetic_Classifier
 $python3 GNN.py
  
- ## Disciprtion
- The code models the nueral network as a set of metrices (structure can be changed if needed).
- The weights of the matrices are updated using a getetic algortihm. The traing also uses simulated aneeling to overcome local     minimas.
- 
-In the graphs the Blue curve is the accuracy and orange is the current mutation rate.
-If the accuracy plataues the mutation rate is raised to try and find a better minima.
+## Disciprtion
+The code models the nueral network as a set of metrices.
+The values in the matrices represent the weights of the nueral network. The feed forward mechanism involves matrix multiplication. The model learns the weights using a genetic algorithm that updates the weights. The hyper parameters and the model structure can be changed in the code. To avoid local(false) minimas a modification is done to the genetic algorithm. If the model detects that it is stagnant it will broden its search else it will focus on a specific region.
+
+This is seen in the following graphs where:
+![Alt text](/Graph_1.png?raw=true "Title")
