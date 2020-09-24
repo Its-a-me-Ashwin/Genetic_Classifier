@@ -30,4 +30,7 @@ The code models the nueral network as a set of metrices.
 The values in the matrices represent the weights of the nueral network. The feed forward mechanism involves matrix multiplication. The model learns the weights using a genetic algorithm that updates the weights. The hyper parameters and the model structure can be changed in the code. To avoid local(false) minimas a modification is done to the genetic algorithm. If the model detects that it is stagnant it will broden its search else it will focus on a specific region.
 
 This is seen in the following graphs where:
+As the accuracy plateaus the mutation rate is incresed to widen the search for the global minima.
+
+
 ![Alt text](/Graph_1.png?raw=true "Title")
