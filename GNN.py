@@ -20,6 +20,8 @@ import sys
 
 class Neural_Net_Gen:    
     #fuction to normalize data between 0.0 and 1
+    #input: numpy vector
+    #output: numpy vector
     def normalize(self,data):
         final_result = list()
         for i in data:
@@ -30,7 +32,9 @@ class Neural_Net_Gen:
         final_result = np.array(final_result)
         return final_result
     
-    # give the path it reads the csv file and makes it into a useable format
+    # CSV reader
+    #input: file path
+    #output: numpy vector
     def read_data (self,path):
         attr = list()
         out = list()
@@ -51,6 +55,10 @@ class Neural_Net_Gen:
         X = self.normalize(X)
         Y = np.asarray(Y)
         return (X,Y)
+    
+    # builds the neural network
+    # input: input and output shapes and size of the hidden layers
+    # output: builds the modfel with random weights
     def make_matrices(self,input_shape,output_shape,hidden_layers = 1, size = [], sols = 1):
         if len(size) != hidden_layers: return None
         result_mat = list()
@@ -74,6 +82,8 @@ class Neural_Net_Gen:
     # load data
     
     #converts a given matrix to vector for easy manipulation
+    #input: numpy vector
+    #output: numpy vector
     def matrix_cvt_vector(self,matrix):
         vector = list()
         for i in range(matrix.shape[0]):
@@ -84,7 +94,10 @@ class Neural_Net_Gen:
             vector.append(cur_sol)
         vector = np.array(vector)
         return vector
+    
     #converts vector to matrix for easy prediction and use as neuralnetwork
+    #input: numpy vector and its requiried shape
+    #output: numpy vector
     def vector_to_mat(self,vector_pop_weights, mat_pop_weights):
         mat_weights = []
         for sol_idx in range(mat_pop_weights.shape[0]):
@@ -99,7 +112,9 @@ class Neural_Net_Gen:
                 start = end
         return np.reshape(mat_weights, newshape=mat_pop_weights.shape) 
     
-    #predicts the output for given set of instances 
+    #predicts the output for given set of instances
+    #input: the generated model, input(X), real output(Y)
+    #output: accuracy
     def predict_outputs(self,weights_mat, data_inputs, data_outputs = None,show = False):
         predictions = list()
         for sample_idx in range(data_inputs.shape[0]):
@@ -123,7 +138,9 @@ class Neural_Net_Gen:
             return accuracy
         return accuracy
         
-    #used to check if a perticular population is accurate
+    #validates the population to determine which is performing the best
+    #input: the generated model, input(X), real output(Y)
+    #output: accuracy
     def fitness_pop(self,weights_mat, data_inputs, data_outputs ,show = False):
         accuracy = list()
         for sol_idx in range(weights_mat.shape[0]):
@@ -204,7 +221,8 @@ class Neural_Net_Gen:
         return offspring
     
     
-    
+    # The training function
+    # takes the data set as input
     def train (self,path,sol_per_pop = 25,
         num_parents_mating = 10,
         epochs = 150,
